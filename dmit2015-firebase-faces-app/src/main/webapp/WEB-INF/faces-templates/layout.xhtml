@@ -40,25 +40,32 @@
     <header>
         <div class="card">
             <h:form>
-                <p:growl id="growl"/>
-
                 <p:menubar>
                     <!-- https://www.primefaces.org/showcase/icons.xhtml?jfwid=a2b2f -->
                     <p:menuitem value="Home" icon="pi pi-home" url="#{request.contextPath}/index.xhtml"/>
 
-                    <!--                <p:submenu label="Students" icon="pi pi-file">-->
-                    <!--                    <p:menuitem value="List" icon="pi pi-list"-->
-                    <!--                                url="#{request.contextPath}/students/index.xhtml"/>-->
-                    <!--                    <p:menuitem value="Create" icon="pi pi-plus"-->
-                    <!--                                url="#{request.contextPath}/students/create.xhtml"/>-->
-                    <!--                </p:submenu>-->
+                    <p:menuitem value="Hello" url="#{request.contextPath}/demo/helloFaces" />
 
+                    <p:submenu label="Counter" >
+                        <p:menuitem value="Faces version"
+                                    url="#{request.contextPath}/demo/counter-faces" />
+                        <p:menuitem value="Faces with AJAX version"
+                                    url="#{request.contextPath}/demo/counter-ajax" />
+                        <p:menuitem value="Faces with PrimeFaces version"
+                                    url="#{request.contextPath}/demo/counter-primefaces" />
+                    </p:submenu>
+
+                    <p:menuitem value="Form Example" url="#{request.contextPath}/demo/form-example" />
+
+                    <p:menuitem value="Weather" url="#{request.contextPath}/weather" />
                 </p:menubar>
             </h:form>
         </div>
     </header>
 
     <main>
+        <p:growl id="growl"/>
+
         <ui:insert name="maincontent">
             NO MAIN CONTENT PROVIDED
         </ui:insert>
