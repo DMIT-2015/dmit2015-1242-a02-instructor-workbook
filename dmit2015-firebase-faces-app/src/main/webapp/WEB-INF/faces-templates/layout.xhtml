@@ -60,6 +60,17 @@
                     <p:menuitem value="Form Example" url="#{request.contextPath}/demo/form-example" />
 
                     <p:menuitem value="Weather" url="#{request.contextPath}/weather" />
+
+                    <c:if test="${empty firebaseAuthSignInSession.username}">
+                        <p:menuitem
+                                value="Login"
+                                action="/firebaseAuthSignIn" />
+                    </c:if>
+                    <c:if test="${not empty firebaseAuthSignInSession.username}">
+                        <p:menuitem
+                                value="Logout #{firebaseAuthSignInSession.username}"
+                                action="#{facesLogout.submit}" />
+                    </c:if>
                 </p:menubar>
             </h:form>
         </div>
@@ -86,6 +97,8 @@
             <a href="https://www.primefaces.org/primeflex/" target="_blanks">PrimeFlex</a>,
             and runs on
             <a href="http://www.wildfly.org/" target="_blanks">WildFly</a>
+
+
         </p>
     </footer>
 
