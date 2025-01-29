@@ -1,5 +1,7 @@
 package dmit2015.model;
 
+import jakarta.validation.constraints.FutureOrPresent;
+
 import java.time.LocalDate;
 
 /**
@@ -10,6 +12,7 @@ import java.time.LocalDate;
  */
 public class WeatherForecast {
 
+    @FutureOrPresent(message = "Data must be today or in the future.")
     private LocalDate date;
 
     private int temperatureC;
