@@ -11,8 +11,10 @@ import lombok.Setter;
 import net.datafaker.Faker;
 import org.omnifaces.util.Messages;
 import org.primefaces.PrimeFaces;
+import org.primefaces.model.file.UploadedFile;
 
 import java.io.Serializable;
+import java.util.Base64;
 import java.util.List;
 
 /**
@@ -22,6 +24,9 @@ import java.util.List;
 @Named("currentStudentCrudView")
 @ViewScoped // create this object for one HTTP request and keep in memory if the next is for the same page
 public class StudentCrudView implements Serializable {
+
+    @Getter @Setter
+    private UploadedFile imageFileUpload;
 
     @Inject
     @Named("firebaseMultiTenantHttpClientStudentService")
@@ -101,6 +106,17 @@ public class StudentCrudView implements Serializable {
      */
     public void onSave() {
         try {
+
+            // Check if image file uploaded
+            if (imageFileUpload != null) {
+                // File size must be less than 10KB.
+                String base64EncodedImageString = Base64.getEncoder().encodeToString(imageFileUpload.getContent());
+                String imageDataUrl = String.format("data:%s;base64,%s",
+                        imageFileUpload.getContentType(),
+                        base64EncodedImageString
+                        );
+                selectedStudent.setImageDataUrl(imageDataUrl);
+            }
 
             // If selectedId is null then create new data otherwise update current data
             if (selectedId == null) {

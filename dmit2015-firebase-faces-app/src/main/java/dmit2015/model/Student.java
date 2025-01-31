@@ -20,4 +20,6 @@ public class Student {
         message = "Course section must start with DMIT or COMP or CPSC and end with 4 digits.")
     private String courseSection;
 
+    private String imageDataUrl;
+
 }

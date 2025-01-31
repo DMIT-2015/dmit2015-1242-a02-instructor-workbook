@@ -212,6 +212,7 @@ public class FirebaseMultiTenantHttpClientStudentService implements StudentServi
                                 currentStudent.setFirstName(item.getValue().getFirstName());
                                 currentStudent.setLastName(item.getValue().getLastName());
                                 currentStudent.setCourseSection(item.getValue().getCourseSection());
+                                currentStudent.setImageDataUrl(item.getValue().getImageDataUrl());
 
                                 return currentStudent;
                             })
