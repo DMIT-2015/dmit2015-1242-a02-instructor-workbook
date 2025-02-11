@@ -55,7 +55,7 @@ public class JakartaPersistenceStudentServiceImplementationArquillianIT { // The
                 .addAsLibraries(pomFile.resolve("com.h2database:h2:2.3.232").withTransitivity().asFile())
                 .addAsLibraries(pomFile.resolve("com.microsoft.sqlserver:mssql-jdbc:12.8.1.jre11").withTransitivity().asFile())
                 .addAsLibraries(pomFile.resolve("com.oracle.database.jdbc:ojdbc11:23.6.0.24.10").withTransitivity().asFile())
-                .addAsLibraries(pomFile.resolve("org.postgresql.postgresql:postgresql:42.7.5").withTransitivity().asFile())
+                .addAsLibraries(pomFile.resolve("org.postgresql:postgresql:42.7.5").withTransitivity().asFile())
 //                .addAsLibraries(pomFile.resolve("com.mysql:mysql-connector-j:9.0.0").withTransitivity().asFile())
 //                .addAsLibraries(pomFile.resolve("org.mariadb.jdbc:mariadb-java-client:3.4.1").withTransitivity().asFile())
                 // .addAsLibraries(pomFile.resolve("org.hibernate.orm:hibernate-spatial:6.6.5.Final").withTransitivity().asFile())
@@ -89,13 +89,13 @@ public class JakartaPersistenceStudentServiceImplementationArquillianIT { // The
     @BeforeEach
     void beforeEachTestMethod() throws SystemException, NotSupportedException {
         // Start a new transaction
-//        _beanManagedTransaction.begin();
+        _beanManagedTransaction.begin();
     }
 
     @AfterEach
     void afterEachTestMethod() throws SystemException {
         // Rollback the transaction
-//        _beanManagedTransaction.rollback();
+        _beanManagedTransaction.rollback();
     }
 
     @Order(1)
@@ -185,7 +185,7 @@ public class JakartaPersistenceStudentServiceImplementationArquillianIT { // The
 
         // Delete all existing data
         assertThat(_studentService).isNotNull();
-//        _studentService.deleteAllStudents();
+        _studentService.deleteAllStudents();
         // Generate expectedRecordCount number of fake data
         Student firstExpectedStudent = null;
         Student lastExpectedStudent = null;
