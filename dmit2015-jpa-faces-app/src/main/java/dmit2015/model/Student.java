@@ -42,7 +42,9 @@ public class Student implements Serializable {
     @NotBlank(message = "Last name is required.")
     private String lastName;
     private String courseSection;
-    @Lob
+
+//    @Lob
+    @Column(columnDefinition = "BYTEA")
     private byte[] picture;
 
     public Student() {

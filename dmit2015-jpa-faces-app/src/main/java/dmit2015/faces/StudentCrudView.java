@@ -11,6 +11,7 @@ import lombok.Setter;
 import net.datafaker.Faker;
 import org.omnifaces.util.Messages;
 import org.primefaces.PrimeFaces;
+import org.primefaces.model.file.UploadedFile;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -24,6 +25,9 @@ import java.util.List;
 @Named("currentStudentCrudView")
 @ViewScoped // create this object for one HTTP request and keep in memory if the next is for the same page
 public class StudentCrudView implements Serializable {
+
+    @Getter @Setter
+    private UploadedFile uploadedImageFile;
 
     @Inject
     @Named("jakartaPersistenceStudentService")
@@ -103,6 +107,11 @@ public class StudentCrudView implements Serializable {
      */
     public void onSave() {
         try {
+            // Set picture of student if image file uploaded
+            if (uploadedImageFile != null) {
+                selectedStudent.setPicture(uploadedImageFile.getContent());
+            }
+
 
             // If selectedId is null then create new data otherwise update current data
             if (selectedId == null) {
