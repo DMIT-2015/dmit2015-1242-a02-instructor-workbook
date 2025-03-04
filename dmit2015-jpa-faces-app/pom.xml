@@ -288,6 +288,11 @@
                         <layer>undertow-https</layer>
                     </layers>
 
+                    <scripts>
+                        <script>./wildfly-scripts/enable-oneway-https.cli</script>
+                        <script>./wildfly-scripts/configure-elytron.cli</script>
+                    </scripts>
+
                     <!-- deploys the app on root web context -->
                     <name>ROOT.war</name>
                     <!-- Enable debugging -->
