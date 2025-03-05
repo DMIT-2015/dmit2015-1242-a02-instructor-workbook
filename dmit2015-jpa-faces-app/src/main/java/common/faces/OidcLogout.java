@@ -50,7 +50,7 @@ public class OidcLogout {
                      .request(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
                      .post(Entity.form(formData))
         ) {
-            if (httpResponse.getStatusInfo().getFamily() == Response.Status.Family.SUCCESSFUL) {
+            if (httpResponse.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL) {
                 Messages.addGlobalError("Logout failed with status %s", httpResponse.getStatus());
             }
         }
