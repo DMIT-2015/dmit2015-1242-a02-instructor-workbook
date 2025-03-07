@@ -34,7 +34,7 @@ public class JakartaPersistenceStudentService implements StudentService {
         boolean hasRequiredRoles = _securityContext.isCallerInRole("Sales")
                 || _securityContext.isCallerInRole("DMIT2015.1242.A02");
         if (!hasRequiredRoles) {
-            throw new SecurityException("Access denied. You don't have permissions to view student data");
+            throw new SecurityException("Access denied. You don't have permissions to create student data");
         }
 
         // Set the username of the authenticated user who created this student
