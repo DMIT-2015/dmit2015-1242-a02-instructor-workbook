@@ -1,5 +1,5 @@
 ### Get all TodoItemsDto
-GET http://localhost:8090/restapi/TodoItemDto
+GET http://localhost:8090/restapi/TodoItemsDto
 
 ### Get a single TodoItem with an id of 1
 GET http://localhost:8090/restapi/TodoItemsDto/1
