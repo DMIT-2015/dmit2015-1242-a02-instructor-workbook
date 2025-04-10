@@ -47,7 +47,7 @@ public class EnforcementZoneCentreStringToSqlStatementItemProcessor implements I
                 model.getLatitude(),
                 model.getLongitude(),
                 LocalDateTime.now(),
-                String.format("POINT(\"%f %f\")", model.getLatitude() , model.getLongitude() )
+                String.format("POINT(%f %f)", model.getLongitude() , model.getLatitude() )
                 );
     }
 

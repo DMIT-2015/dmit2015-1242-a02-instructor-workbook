@@ -36,9 +36,11 @@ public class ItemStepListener extends AbstractStepListener {
 
         Properties jobParameters = _jobContext.getProperties();
         String output_file = jobParameters.getProperty("output_file");
+        if (output_file != null) {
+            Path outputFilePath = Paths.get(output_file);
+            Files.deleteIfExists(outputFilePath);
+        }
 
-        Path outputFilePath = Paths.get(output_file);
-        Files.deleteIfExists(outputFilePath);
     }
 
     @Override
