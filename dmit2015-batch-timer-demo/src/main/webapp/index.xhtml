@@ -20,6 +20,47 @@
 
         <h1>Batch and TImerService</h1>
 
+        <div class="card">
+            <h1>Manage Timers</h1>
+
+            <p:messages id="messages" />
+
+            <h:form >
+                <p:commandButton
+                        value="Cancel All Timers"
+                        action="#{timerView.cancelAllTimers}"
+                        immediate="true"
+                        update="timersTable"
+                >
+                </p:commandButton>
+
+                <p:dataTable
+                        id="timersTable"
+                        value="#{timerView.list()}"
+                        var="currentTimer"
+                >
+
+                    <p:column headerText="Timer Info" >
+                        <h:outputText value="#{currentTimer.info}" />
+                    </p:column>
+
+                    <p:column headerText="Schedule" >
+                        <h:outputText value="#{currentTimer.schedule.toString()}" />
+                    </p:column>
+
+                    <p:column headerText="Action">
+                        <p:commandButton
+                                icon="pi pi-trash"
+                                value="Cancel"
+                                action="#{timerView.cancelTimer(currentTimer)}"
+                                ajax="false" />
+                    </p:column>
+
+                </p:dataTable>
+
+            </h:form>
+
+        </div>
 
     </ui:define>
 

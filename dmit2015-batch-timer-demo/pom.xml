@@ -160,6 +160,10 @@
                         <verbose>true</verbose>
                     </discover-provisioning-info>
 
+                    <scripts>
+                        <script>/home/user2015/jdk/server/wildfly-scripts/configure-mail.cli</script>
+                    </scripts>
+
                     <bootableJar>true</bootableJar>
 
                     <!-- deploys the app on root web context -->
